@@ -1,8 +1,8 @@
 import './Counter.css';
 
-function Counter() {
+function Counter({ all, finished }) {
   return (
-    <h2 className='todo-counter'>Has completado X de Y.</h2>
+    <h2 className='todo-counter'>Has completado {finished} de {all}.</h2>
   );
 };
 

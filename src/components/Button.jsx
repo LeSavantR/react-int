@@ -3,8 +3,7 @@ import './Button.css';
 function Button (props) {
 
   const clicked = (event) => {
-    console.log(event.target);
-    alert('You clicked me!');
+    console.log('You clicked me!');
   }
 
   return (

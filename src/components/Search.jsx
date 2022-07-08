@@ -1,18 +1,20 @@
+import React from 'react';
 import './Search.css';
 
-function Search() {
+function Search({ search, setSearch }) {
 
   const onSearch = (event) => {
-    console.log(event.target.value);
+    setSearch(event.target.value);
   }
 
   return (
-      <input
-        className='search'
-        type="text"
-        placeholder="Buscar..."
-        onChange={onSearch}
-      />
+    <input
+      className='search'
+      type="text"
+      placeholder="Buscar..."
+      value={search}
+      onChange={onSearch}
+    />
   );
 };
 

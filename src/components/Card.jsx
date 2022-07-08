@@ -3,11 +3,11 @@ import './Card.css';
 function Card ({ text, completed }) {
 
   const onComplete = () => {
-    alert(`You clicked me! ${text}` );
+    console.log(`You clicked me! ${text}` );
   };
 
   const onDelete = () => {
-    alert(`You clicked me! ${text}` );
+    console.log(`You clicked me! ${text}` );
   }
 
   return (
