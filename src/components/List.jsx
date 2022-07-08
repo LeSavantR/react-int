@@ -1,7 +1,11 @@
+import './List.css';
+
 function List(props) {
   return (
-    <section className="list">
-      {props.children}
+    <section>
+      <ul>
+        {props.children}
+      </ul>
     </section>
   );
 }

@@ -1,8 +1,18 @@
+import './Search.css';
+
 function Search() {
+
+  const onSearch = (event) => {
+    console.log(event.target.value);
+  }
+
   return (
-    <section className="search">
-      <input type="text" placeholder="Buscar..." />
-    </section>
+      <input
+        className='search'
+        type="text"
+        placeholder="Buscar..."
+        onChange={onSearch}
+      />
   );
 };
 

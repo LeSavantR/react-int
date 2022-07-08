@@ -1,6 +1,8 @@
-export function Counter() {
+import './Counter.css';
+
+function Counter() {
   return (
-    <h2>Has completado X de Y.</h2>
+    <h2 className='todo-counter'>Has completado X de Y.</h2>
   );
 };
 
