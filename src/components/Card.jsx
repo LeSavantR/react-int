@@ -1,14 +1,6 @@
 import './Card.css';
 
-function Card ({ text, completed }) {
-
-  const onComplete = () => {
-    console.log(`You clicked me! ${text}` );
-  };
-
-  const onDelete = () => {
-    console.log(`You clicked me! ${text}` );
-  }
+function Card ({ text, completed, onComplete, onDelete }) {
 
   return (
     <li className="item">
