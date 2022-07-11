@@ -11,7 +11,7 @@ function Button (props) {
       className="todo-button"
       onClick={clicked}
     >
-      ➕
+      +
     </button>
   );
 };

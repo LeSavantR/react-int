@@ -9,7 +9,7 @@ function Card ({ text, completed, onComplete, onDelete }) {
         className={`icon icon-check${completed ? ' icon-check--active' : ''}`}
         onClick={onComplete}
       >
-        ✔️
+        {completed ? '✓' : '✗'}
       </span>
 
       <p className={`item-p${completed ? ' item-p--complete' : ''}`}>
@@ -19,7 +19,7 @@ function Card ({ text, completed, onComplete, onDelete }) {
         className='icon icon-delete'
         onClick={onDelete}
       >
-        ❌
+        ✗
       </span>
     </li>
   );
