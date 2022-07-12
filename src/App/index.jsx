@@ -1,62 +1,11 @@
 import React from 'react';
-import Counter from './components/Counter';
-import Search from './components/Search';
-import List from './components/List';
-import { Card } from './components/Card';
-import Button from './components/Button';
-// import './App.css';
+import Counter from '../components/Counter';
+import Search from '../components/Search';
+import List from '../components/List';
+import { Card } from '../components/Card';
+import Button from '../components/Button';
+import { useStorage } from '../Context/useStorage';
 
-function useStorage(key, initialValue) {
-
-  // useState para loading.
-  const [ loading, setLoading ] = React.useState(true);
-
-  // useState para error.
-  const [ error, setError ] = React.useState(false);
-
-  // Cambio de estado en la lista.
-  const [ list, setList ] = React.useState(initialValue);
-
-  // useState para simular consulta a una API.
-  React.useEffect(() => {
-
-    // Simulacion de carga de datos.
-    setTimeout(() => {
-      try {
-          //  Leer datos en LocalStorage.
-        const localStore = localStorage.getItem(key);
-        let parsedStore;
-
-        if (!localStore) {
-          localStorage.setItem(key, JSON.stringify(initialValue));
-          parsedStore = initialValue;
-        } else {
-          parsedStore = JSON.parse(localStore);
-        };
-
-        setList(parsedStore);
-        setLoading(false);
-      } catch (error) {
-        setError(error);
-      };
-
-    }, 1000);
-  });
-
-  // Funcion para almacenar los datos en LocalStorage.
-  const saveData = (saveList) => {
-    try {
-      const stringifiedList = JSON.stringify(saveList);
-      localStorage.setItem(key, stringifiedList);
-      setList(saveList);
-    } catch (error) {
-      setError(error);
-    };
-  };
-
-  // Finalmente.
-  return { list, saveData, loading, error };
-}
 
 function App() {
   // Manejo de estados en App.jsx

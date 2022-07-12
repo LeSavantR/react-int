@@ -6,4 +6,4 @@ function Counter({ all, finished }) {
   );
 };
 
-export default Counter;
+export { Counter };
