@@ -7,30 +7,60 @@ import Button from './components/Button';
 // import './App.css';
 
 function useStorage(key, initialValue) {
-  //  Leer datos en LocalStorage.
-  const localStore = localStorage.getItem(key);
-  let parsedStore;
-  if (!localStore) {
-    localStorage.setItem(key, JSON.stringify(initialValue));
-    parsedStore = initialValue;
-  } else {parsedStore = JSON.parse(localStore);};
 
-  // Cambio de estados.
-  const [ list, setList ] = React.useState(parsedStore);
+  // useState para loading.
+  const [ loading, setLoading ] = React.useState(true);
+
+  // useState para error.
+  const [ error, setError ] = React.useState(false);
+
+  // Cambio de estado en la lista.
+  const [ list, setList ] = React.useState(initialValue);
+
+  // useState para simular consulta a una API.
+  React.useEffect(() => {
+
+    // Simulacion de carga de datos.
+    setTimeout(() => {
+      try {
+          //  Leer datos en LocalStorage.
+        const localStore = localStorage.getItem(key);
+        let parsedStore;
+
+        if (!localStore) {
+          localStorage.setItem(key, JSON.stringify(initialValue));
+          parsedStore = initialValue;
+        } else {
+          parsedStore = JSON.parse(localStore);
+        };
+
+        setList(parsedStore);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+      };
+
+    }, 1000);
+  });
+
   // Funcion para almacenar los datos en LocalStorage.
-
   const saveData = (saveList) => {
-    const stringifiedList = JSON.stringify(saveList);
-    localStorage.setItem(key, stringifiedList);
-    setList(saveList);
+    try {
+      const stringifiedList = JSON.stringify(saveList);
+      localStorage.setItem(key, stringifiedList);
+      setList(saveList);
+    } catch (error) {
+      setError(error);
+    };
   };
 
-  return [ list, saveData ];
+  // Finalmente.
+  return { list, saveData, loading, error };
 }
 
 function App() {
   // Manejo de estados en App.jsx
-  const [ list, saveData ] = useStorage('todos', []);
+  const { list, saveData, loading, error } = useStorage('todos', []);
   const [ search, setSearch ] = React.useState('');
 
   // Listado de todos los elementos listos.
@@ -57,14 +87,9 @@ function App() {
     saveData(newList);
   }
 
-  // UseEffect.
-  React.useEffect(() => {
-    console.log('useEffect');
-  }, [list.length]);
-
   // Renderizacion de elementos en App.jsx
   return (
-      <>
+    <>
       <Counter finished={listCompleted} all={list.length} />
       <Search search={search} setSearch={setSearch} />
       <List>
