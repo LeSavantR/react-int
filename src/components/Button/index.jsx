@@ -1,9 +1,11 @@
+import React from 'react';
 import './Button.css';
 
 function Button (props) {
 
   const clicked = (event) => {
-    console.log('You clicked me!');
+    console.log(event.target);
+    props.openModel(true);
   }
 
   return (

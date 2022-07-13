@@ -6,6 +6,13 @@
     align-items: center;
     margin-top: 24px;
     box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.15);
+    color: black;
+    font-weight: bold;
+}
+
+li.item-c {
+    background-color: #C1FFC0;
+    color: gray;
 }
 
 .item-p {
@@ -41,6 +48,7 @@
 }
 
 .icon-delete {
+    color: lightgray;
     position: absolute;
     top: 12px;
     right: 0px;

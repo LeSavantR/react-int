@@ -1,7 +1,10 @@
 import React from 'react';
+import { Context } from '../../Context';
 import './Search.css';
 
-function Search({ search, setSearch }) {
+function Search() {
+
+  const { search, setSearch } = React.useContext(Context);
 
   const onSearch = (event) => {
     setSearch(event.target.value);
