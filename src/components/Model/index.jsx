@@ -8,8 +8,9 @@ function Model({ children }) {
   const { setModel } = React.useContext(Context);
   const element = document.querySelector('#model');
   return ReactDOM.createPortal(
-    <div className="modelBackground" onClick={() => setModel(false)}>
+    <div className="modelBackground">
       {children}
+      <span  onClick={() => setModel(false)}> ✗ </span>
     </div>
     , element);
 };

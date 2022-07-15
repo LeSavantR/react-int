@@ -22,6 +22,12 @@ function TodoProvider(props) {
   };
 
   // Marcar elementos completados.
+  const addItem = (text) => {
+    let newList = [...list];
+    newList.push({ text, completed: false });
+    saveData(newList);
+  }
+
   const complete = (text) => {
     let indexItem = list.findIndex(item => item.text === text);
     let newList = [...list];
@@ -41,7 +47,7 @@ function TodoProvider(props) {
     <Context.Provider value={{
       loading, error, all, model, setModel,
       listCompleted, search, setSearch,
-      listSearch, complete, del
+      listSearch, complete, del, addItem
     }}>
       {props.children}
     </Context.Provider>

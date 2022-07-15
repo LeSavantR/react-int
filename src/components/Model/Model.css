@@ -10,3 +10,11 @@
     align-items: center;
     color: white;
 }
+
+.modelBackground span {
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 1.5em;
+    font-weight: bold;
+}

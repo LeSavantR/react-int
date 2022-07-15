@@ -6,6 +6,7 @@ import { List } from "../components/List";
 import { Card } from "../components/Card";
 import { Button } from "../components/Button";
 import { Model } from "../components/Model";
+import { Form } from "../components/Form";
 
 
 function AppUI() {
@@ -30,11 +31,11 @@ function AppUI() {
       </List>
       { model && (
         <Model>
-          <p>{listSearch[0]?.text}</p>
+          <Form />
         </Model>
         )
       }
-      <Button openModel={setModel} />
+      <Button openModel={setModel} model={model} />
     </>
   );
 };

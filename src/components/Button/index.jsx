@@ -1,11 +1,10 @@
 import React from 'react';
 import './Button.css';
 
-function Button (props) {
+function Button ({ openModel, model }) {
 
   const clicked = (event) => {
-    console.log(event.target);
-    props.openModel(true);
+    openModel(!model);
   }
 
   return (
