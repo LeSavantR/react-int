@@ -15,14 +15,18 @@ function Form(){
   };
   const onAdd = (event) => {
     event.preventDefault();
-    addItem(text);
-    setModel(!model);
+    if (text !== '') {
+      addItem(text);
+      setModel(!model);
+    } else {
+      return false;
+    }
   };
 
   return (
     <form onSubmit={onAdd}>
       <label>Agregar un Nuevo TODO!</label>
-      <textarea value={text} onChange={onWrit} placeholder='Realizar las cuentas del mes.' />
+      <textarea autoFocus value={text} onChange={onWrit} placeholder='Realizar las cuentas del mes.' />
       <section>
         <button className='cancel' type='button' onClick={onCanc}>✗</button>
         <button className='submit' type='submit'>✓</button>

@@ -7,6 +7,8 @@ import { Card } from "../components/Card";
 import { Button } from "../components/Button";
 import { Model } from "../components/Model";
 import { Form } from "../components/Form";
+import { Header } from "../components/Header";
+import { Empty } from "../components/Empty";
 
 
 function AppUI() {
@@ -15,12 +17,12 @@ function AppUI() {
 
   return (
     <>
-      <Counter />
+      {(!loading && !listSearch.length) ? <Header/> : <Counter/>}
       <Search />
       <List>
         {error && <p>Ha fallado, hubo un error {error}</p>}
         {loading && <p>Cargando...</p>}
-        {(!loading && !listSearch.length) && <p>Crea tu primer TODO!</p>}
+        {(!loading && !listSearch.length) && <Empty/>}
         {listSearch.map(item => (
           <Card
             key={item.text} text={item.text}
