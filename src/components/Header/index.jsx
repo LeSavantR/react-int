@@ -1,8 +1,7 @@
-function Header(){
+function Header({children}) {
   return (
     <header>
-      <h1>App To-Do</h1>
-      <h2>Ingresa Nuevo To-Do</h2>
+      {children}
     </header>
   );
 };

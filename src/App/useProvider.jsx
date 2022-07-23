@@ -1,10 +1,8 @@
 import React from 'react';
 import { useStorage } from './useStorage';
 
-const Context = React.createContext();
 
-
-function TodoProvider(props) {
+function useProvider() {
   // Manejo de estados en App.jsx
   const { list, saveData, loading, error } = useStorage('todos', []);
   const [ search, setSearch ] = React.useState('');
@@ -43,16 +41,12 @@ function TodoProvider(props) {
     saveData(newList);
   }
 
-  return (
-    <Context.Provider value={{
+  return ({
       loading, error, all, model, setModel,
       listCompleted, search, setSearch,
       listSearch, complete, del, addItem
-    }}>
-      {props.children}
-    </Context.Provider>
-  );
+  });
 };
 
 
-export { Context, TodoProvider };
+export { useProvider };

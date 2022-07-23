@@ -1,5 +1,5 @@
 .modelBackground {
-    background: rgba(96, 96, 96, 0.8);
+    background: rgba(32, 35, 41, .8);
     position: fixed;
     top: -10px;
     left: -10px;
@@ -9,4 +9,12 @@
     justify-content: center;
     align-items: center;
     color: white;
+}
+
+.modelBackground span {
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 1.5em;
+    font-weight: bold;
 }

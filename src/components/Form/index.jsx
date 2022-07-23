@@ -1,11 +1,9 @@
 import React from 'react';
-import { Context } from '../../Context';
 import './Form.css';
 
-function Form(){
+function Form({ setModel, model, addItem }) {
 
   const [ text, setText ] = React.useState('');
-  const { addItem, model, setModel } = React.useContext(Context);
 
   const onWrit = (event) => {
     setText(event.target.value);
@@ -15,18 +13,14 @@ function Form(){
   };
   const onAdd = (event) => {
     event.preventDefault();
-    if (text !== '') {
-      addItem(text);
-      setModel(!model);
-    } else {
-      return false;
-    }
+    addItem(text);
+    setModel(!model);
   };
 
   return (
     <form onSubmit={onAdd}>
       <label>Agregar un Nuevo TODO!</label>
-      <textarea autoFocus value={text} onChange={onWrit} placeholder='Realizar las cuentas del mes.' />
+      <textarea value={text} onChange={onWrit} placeholder='Realizar las cuentas del mes.' />
       <section>
         <button className='cancel' type='button' onClick={onCanc}>✗</button>
         <button className='submit' type='submit'>✓</button>
