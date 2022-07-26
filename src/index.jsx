@@ -6,8 +6,11 @@ import App from './App';
 
 
 // Render
-const element = document.getElementById('root');
+const $ = element => document.querySelector(element)
+const element = $('#root');
 const root = ReactDOM.createRoot(element);
 root.render(
     <App />
 );
+
+export { $ };

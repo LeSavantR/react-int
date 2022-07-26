@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useStorage } from './useStorage';
 
 
 function useProvider() {
   // Manejo de estados en App.jsx
   const { list, saveData, loading, error } = useStorage('todos', []);
-  const [ search, setSearch ] = React.useState('');
+  const [ search, setSearch ] = useState('');
   const [ model, setModel ] = React.useState(false);
 
   // Listado de todos los elementos listos.
