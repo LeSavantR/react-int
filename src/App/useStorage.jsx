@@ -35,7 +35,7 @@ function useStorage(key, initialValue) {
         setError(error);
       };
 
-    }, 1000);
+    }, 3000);
   });
 
   // Funcion para almacenar los datos en LocalStorage.
