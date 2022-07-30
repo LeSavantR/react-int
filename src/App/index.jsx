@@ -13,7 +13,7 @@ import { Model } from '../components/Model';
 import { Form } from '../components/Form';
 
 
-/* Colocar fechas en las tareas, notificacion, contador atras */
+// Colocar fechas en las tareas, notificacion, contador atras
 function App() {
   const {
       loading, error, all, model, setModel,
@@ -27,18 +27,24 @@ function App() {
         <Counter all={all} finished={listCompleted} />
         <Search search={search} setSearch={setSearch} />
       </Header>
-      <List>
-        {error && <Error  error={error}/>}
-        {loading && <Loading/>}
-        {(!loading && !listSearch.length) && <Empty/>}
-        {listSearch.map(item => (
+      <List
+        error={error}
+        loading={loading}
+        all={all}
+        listSearch={listSearch}
+        onError={() => <Error error={error} />}
+        onLoading={() => <Loading/>}
+        onEmpty={() => <Empty/>}
+        render={todo => (
           <Card
-            key={item.text} text={item.text}
-            completed={item.completed} onComplete={() => complete(item.text)}
-            onDelete={() => del(item.text)}
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={() => complete(todo.text)}
+            onDelete={() => del(todo.text)}
           />
-        ))}
-      </List>
+        )}
+      />
       { model && (
         <Model>
           <Form setModel={setModel} model={model} addItem={addItem} />
