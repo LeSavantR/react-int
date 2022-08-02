@@ -1,7 +1,6 @@
-import React from 'react';
 import './Search.css';
 
-function Search({ search, setSearch }) {
+function Search({ search, setSearch, loading }) {
 
   const onSearch = (event) => {
     setSearch(event.target.value);
@@ -14,6 +13,7 @@ function Search({ search, setSearch }) {
       placeholder="Buscar..."
       value={search}
       onChange={onSearch}
+      disabled={loading}
     />
   );
 };

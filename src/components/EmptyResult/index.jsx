@@ -1,11 +1,11 @@
-function EmptyResults({ search }){
+function EmptyResult({ search }){
   return (
     <li className='item'>
       <p className='item-p'>
-        No hay TODOs para los valores {search}
+        No hay TODOs para {search}
       </p>
     </li>
   );
 };
 
-export { EmptyResults };
+export { EmptyResult };

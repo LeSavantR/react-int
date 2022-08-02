@@ -1,4 +1,4 @@
-function Header({children}) {
+function Header({ children }) {
   return (
     <header>
       {children}

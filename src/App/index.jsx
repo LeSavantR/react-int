@@ -7,6 +7,7 @@ import { List } from '../components/List';
 import { Error } from '../components/Error';
 import { Loading } from '../components/Loading';
 import { Empty } from '../components/Empty';
+import { EmptyResult } from '../components/EmptyResult';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
 import { Model } from '../components/Model';
@@ -24,8 +25,16 @@ function App() {
   return (
     <>
       <Header>
-        <Counter all={all} finished={listCompleted} />
-        <Search search={search} setSearch={setSearch} />
+        <Counter
+          all={all}
+          finished={listCompleted}
+          loading={loading}
+        />
+        <Search
+          search={search}
+          setSearch={setSearch}
+          loading={loading}
+        />
       </Header>
       <List
         error={error}
@@ -35,6 +44,7 @@ function App() {
         onError={() => <Error error={error} />}
         onLoading={() => <Loading/>}
         onEmpty={() => <Empty/>}
+        onEmptyResult={() => <EmptyResult search={search} />}
         render={todo => (
           <Card
             key={todo.text}

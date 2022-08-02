@@ -22,3 +22,7 @@
 .search:focus {
     outline-color: #61DAFA;
 }
+
+.search:disabled {
+    opacity: 25%;
+}
